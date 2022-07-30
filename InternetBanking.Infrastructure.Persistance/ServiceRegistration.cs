@@ -33,6 +33,8 @@ namespace InternetBanking.Infrastructure.Persistence
             service.AddTransient<IPlateRepository, PlateRepository>();
             service.AddTransient<IPlateCategoryRepository, PlateCategoryRepository>();
             service.AddTransient<ITableStatusRepository, TableStatusRepository>();
+            service.AddTransient<ITableRepository, TableRepository>();
+
 
 
 

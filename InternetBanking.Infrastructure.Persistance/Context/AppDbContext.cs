@@ -15,7 +15,7 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
         private readonly IHttpContextAccessor _httpContextAccessor;
         private UserViewModel user = new();
 
-        public AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor http) : base(options) 
+        public AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor http) : base(options)
         {
             _httpContextAccessor = http;
         }
@@ -24,6 +24,9 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
         public DbSet<Ingredient> Ingredient { get; set; }
         public DbSet<Plate> Plate { get; set; }
         public DbSet<PlateCategory> CategoryPlate { get; set; }
+        public DbSet<Table> Table { get; set; }
+        public DbSet<TableStatus> TableStatus { get; set; }
+
 
         #endregion
 
@@ -66,6 +69,12 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
             mb.Entity<PlateCategory>()
                 .ToTable("CategoryPlate");
 
+            mb.Entity<Table>()
+                .ToTable("Table");
+
+            mb.Entity<TableStatus>()
+                .ToTable("TableStatus");
+
             #endregion
 
             #region primary keys
@@ -77,6 +86,12 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
                 .HasKey(e => e.Id);
 
             mb.Entity<PlateCategory>()
+                .HasKey(e => e.Id);
+
+            mb.Entity<Table>()
+                .HasKey(e => e.Id);
+
+            mb.Entity<TableStatus>()
                 .HasKey(e => e.Id);
 
             #endregion
@@ -91,12 +106,13 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
                 .WithOne(e => e.PlateCategory)
                 .HasForeignKey(e => e.PlateCategoryId);
 
+
             #endregion
 
             #region property configurations
 
             #region Ingredient
-            
+
             #endregion
 
 
