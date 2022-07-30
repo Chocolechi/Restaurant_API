@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using InternetBanking.Core.Application.Dtos.Account;
 using InternetBanking.Core.Application.ViewModels.User;
+using RestaurantAPI.Core.Application.Dtos.Account;
 using RestaurantAPI.Core.Application.ViewModels.Ingredient;
 using RestaurantAPI.Core.Application.ViewModels.Order;
 using RestaurantAPI.Core.Application.ViewModels.Plate;
 using RestaurantAPI.Core.Application.ViewModels.Table;
+using RestaurantAPI.Core.Application.ViewModels.User;
 using RestaurantAPI.Core.Domain.Models;
 
 namespace RestaurantAPI.Core.Application.Mappings

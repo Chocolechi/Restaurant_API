@@ -6,7 +6,7 @@ using RestaurantAPI.Infrastructure.Persistence.Context;
 using RestaurantAPI.Infrastructure.Persistence.Repositories;
 
 
-namespace InternetBanking.Infrastructure.Persistence
+namespace RestaurantAPI.Infrastructure.Persistence
 {
     //Main reason for creating this class is to follow the Single responsability
     public static class ServiceRegistration

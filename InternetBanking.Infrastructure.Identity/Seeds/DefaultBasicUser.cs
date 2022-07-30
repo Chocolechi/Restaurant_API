@@ -1,13 +1,14 @@
-﻿using InternetBanking.Core.Application.Enums;
-using InternetBanking.Infrastructure.Identity.Entities;
+﻿
 using Microsoft.AspNetCore.Identity;
+using RestaurantAPI.Core.Application.Enums;
+using RestaurantAPI.Infrastructure.Identity.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetBanking.Infrastructure.Identity.Seeds
+namespace RestaurantAPI.Infrastructure.Identity.Seeds
 {
     public static class DefaultBasicUser
     {
@@ -18,7 +19,6 @@ namespace InternetBanking.Infrastructure.Identity.Seeds
             defaultUser.Email = "DefaultBasicUser@gmail.com";
             defaultUser.FirstName = "Chocolechi";
             defaultUser.LastName = "Negrito";
-            defaultUser.IsVerified = true;
             defaultUser.EmailConfirmed = true;
             defaultUser.PhoneNumberConfirmed = true;
             defaultUser.TypeUser = 2;
@@ -29,7 +29,7 @@ namespace InternetBanking.Infrastructure.Identity.Seeds
                 if (user == null)
                 {
                     await userManager.CreateAsync(defaultUser, "123Pa$$word!");
-                    await userManager.AddToRoleAsync(defaultUser, Roles.Basic.ToString());
+                    await userManager.AddToRoleAsync(defaultUser, Roles.Waiter.ToString());
                 }
             }
         }

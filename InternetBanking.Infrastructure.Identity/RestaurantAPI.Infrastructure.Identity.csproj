@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InternetBanking.Core.Application\RestaurantAPI.Core.Application.csproj" />
-    <ProjectReference Include="..\InternetBanking.Infrastructure.Shared\RestaurantAPI.Infrastructure.Shared.csproj" />
   </ItemGroup>
 
 </Project>

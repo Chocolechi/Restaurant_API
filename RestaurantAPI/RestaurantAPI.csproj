@@ -21,7 +21,6 @@
     <ProjectReference Include="..\InternetBanking.Core.Domain\RestaurantAPI.Core.Domain.csproj" />
     <ProjectReference Include="..\InternetBanking.Infrastructure.Identity\RestaurantAPI.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\InternetBanking.Infrastructure.Persistance\RestaurantAPI.Infrastructure.Persistence.csproj" />
-    <ProjectReference Include="..\InternetBanking.Infrastructure.Shared\RestaurantAPI.Infrastructure.Shared.csproj" />
   </ItemGroup>
 
 </Project>

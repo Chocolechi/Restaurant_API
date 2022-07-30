@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternetBanking.Core.Application.ViewModels.User
+namespace RestaurantAPI.Core.Application.ViewModels.User
 {
     public class ResetPassViewModel
     {

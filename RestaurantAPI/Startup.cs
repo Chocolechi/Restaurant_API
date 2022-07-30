@@ -1,15 +1,12 @@
-using InternetBanking.Infrastructure.Identity;
-using InternetBanking.Infrastructure.Persistence;
-using InternetBanking.Infrastructure.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RestaurantAPI.Core.Application;
 using RestaurantAPI.Extensions;
-
+using RestaurantAPI.Infrastructure.Identity;
+using RestaurantAPI.Infrastructure.Persistence;
 namespace RestaurantAPI
 {
     public class Startup

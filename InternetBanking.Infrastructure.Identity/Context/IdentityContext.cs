@@ -1,9 +1,9 @@
-﻿using InternetBanking.Infrastructure.Identity.Entities;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RestaurantAPI.Infrastructure.Identity.Entities;
 
-namespace InternetBanking.Infrastructure.Identity.Context
+namespace RestaurantAPI.Infrastructure.Identity.Context
 {
     public class IdentityContext : IdentityDbContext<ApplicationUser>
     {

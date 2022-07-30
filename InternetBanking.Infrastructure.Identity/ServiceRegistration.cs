@@ -1,14 +1,13 @@
-﻿using InternetBanking.Core.Application.Interfaces.Services;
-using InternetBanking.Infrastructure.Identity.Context;
-using InternetBanking.Infrastructure.Identity.Entities;
-using InternetBanking.Infrastructure.Identity.Services;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestaurantAPI.Core.Application.Interfaces.Services;
+using RestaurantAPI.Infrastructure.Identity.Context;
+using RestaurantAPI.Infrastructure.Identity.Entities;
+using RestaurantAPI.Infrastructure.Identity.Services;
 
-namespace InternetBanking.Infrastructure.Identity
+namespace RestaurantAPI.Infrastructure.Identity
 {
     //Main reason for creating this class is to follow the Single responsability
     public static class ServiceRegistration
