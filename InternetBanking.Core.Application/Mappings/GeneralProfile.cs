@@ -2,6 +2,7 @@
 using InternetBanking.Core.Application.Dtos.Account;
 using InternetBanking.Core.Application.ViewModels.User;
 using RestaurantAPI.Core.Application.ViewModels.Ingredient;
+using RestaurantAPI.Core.Application.ViewModels.Plate;
 using RestaurantAPI.Core.Domain.Models;
 
 namespace RestaurantAPI.Core.Application.Mappings
@@ -55,6 +56,16 @@ namespace RestaurantAPI.Core.Application.Mappings
                 .ReverseMap();
 
             CreateMap<Ingredient, IngredientSaveViewModel>()
+                .ReverseMap();
+
+            #endregion
+
+            #region Plate
+
+            CreateMap<Plate, PlateSaveViewModel>()
+                .ReverseMap();
+
+            CreateMap<Plate, PlateViewModel>()
                 .ReverseMap();
 
             #endregion

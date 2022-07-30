@@ -30,6 +30,11 @@ namespace InternetBanking.Infrastructure.Persistence
 
             service.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             service.AddTransient<IIngredientRepository, IngredientRepository>();
+            service.AddTransient<IPlateRepository, PlateRepository>();
+            service.AddTransient<IPlateCategoryRepository, PlateCategoryRepository>();
+            service.AddTransient<ITableStatusRepository, TableStatusRepository>();
+
+
 
             #endregion
         }

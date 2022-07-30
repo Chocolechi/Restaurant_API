@@ -15,6 +15,7 @@ namespace RestaurantAPI.Core.Application
             #region Services
 
             service.AddTransient<IIngredientService, IngredientService>();
+            service.AddTransient<IPlateService, PlateService>();
 
             #endregion
         }

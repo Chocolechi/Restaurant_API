@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantAPI.Core.Domain.Models
 {
-    public class PlateCategory : AuditableBE
+    public class Table: AuditableBE
     {
         public string Name { get; set; }
+        public int HowManyInTable { get; set; }
+        public string Description { get; set; }
+        public string Estate { get; set; }
 
-        public ICollection<Plate> Plates { get; set; }
     }
 }
