@@ -27,7 +27,7 @@ namespace RestaurantAPI
             services.AddPersistanceInfrastructure(Configuration);
             services.AddIdentityInfrastructure(Configuration);
             services.AddApplicationLayer();
-            services.AddSharedInfrastructure(Configuration);
+            //services.AddSharedInfrastructure(Configuration);
 
             services.AddControllers();
             services.AddHealthChecks();
@@ -37,7 +37,7 @@ namespace RestaurantAPI
             services.AddDistributedMemoryCache();
             services.AddSession();
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
         }

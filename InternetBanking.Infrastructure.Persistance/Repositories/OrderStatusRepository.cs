@@ -4,10 +4,10 @@ using RestaurantAPI.Infrastructure.Persistence.Context;
 
 namespace RestaurantAPI.Infrastructure.Persistence.Repositories
 {
-    public class PlateCategoryRepository : GenericRepository<PlateCategory>, IPlateCategoryRepository
+    public class OrderStatusRepository : GenericRepository<OrderStatus>, IOrderStatusRepository
     {
         private readonly AppDbContext _db;
-        public PlateCategoryRepository(AppDbContext db): base(db)
+        public OrderStatusRepository(AppDbContext db): base(db)
         {
             _db = db;
         }

@@ -26,6 +26,9 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
         public DbSet<PlateCategory> CategoryPlate { get; set; }
         public DbSet<Table> Table { get; set; }
         public DbSet<TableStatus> TableStatus { get; set; }
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
+        public DbSet<Order> Order { get; set; }
+
 
 
         #endregion

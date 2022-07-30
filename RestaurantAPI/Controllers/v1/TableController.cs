@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Core.Application.Interfaces.Services;
 using RestaurantAPI.Core.Application.ViewModels.Table;
+using System;
 using System.Threading.Tasks;
 
 namespace RestaurantAPI.Controllers.v1
@@ -22,12 +23,19 @@ namespace RestaurantAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get()
         {
-            var tables = await _tableSvc.GetAllVm();
-            if (tables == null || tables.Count == 0)
+            try
             {
-                return NotFound();
+                var tables = await _tableSvc.GetAllVm();
+                if (tables == null || tables.Count == 0)
+                {
+                    return NotFound();
+                }
+                return Ok(tables);
             }
-            return Ok(tables);
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
@@ -36,12 +44,19 @@ namespace RestaurantAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get(int id)
         {
-            var table = await _tableSvc.GetbyIdVM(id);
-            if (table == null)
+            try
             {
-                return NotFound();
+                var table = await _tableSvc.GetbyIdVM(id);
+                if (table == null)
+                {
+                    return NotFound();
+                }
+                return Ok(table);
             }
-            return Ok(table);
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
         [HttpPost]
@@ -50,13 +65,20 @@ namespace RestaurantAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Create(TableSaveViewModel vm)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest();
-            }
-            await _tableSvc.Add(vm);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+                await _tableSvc.Add(vm);
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
         [HttpPut("{id}")]
@@ -65,13 +87,20 @@ namespace RestaurantAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update(int id, TableSaveViewModel vm)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest();
-            }
-            await _tableSvc.Update(vm, id);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest();
+                }
+                await _tableSvc.Update(vm, id);
 
-            return Ok(vm);
+                return Ok(vm);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
@@ -80,8 +109,15 @@ namespace RestaurantAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Delete(int id)
         {
-            await _tableSvc.Delete(id);
-            return NoContent();
+            try
+            {
+                await _tableSvc.Delete(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
 
     }
