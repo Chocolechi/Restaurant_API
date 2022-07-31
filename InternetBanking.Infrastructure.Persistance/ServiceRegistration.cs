@@ -36,6 +36,7 @@ namespace RestaurantAPI.Infrastructure.Persistence
             service.AddTransient<ITableRepository, TableRepository>();
             service.AddTransient<IOrderStatusRepository, OrderStatusRepository>();
             service.AddTransient<IOrderRepository, OrderRepository>();
+            service.AddTransient<IPlateIngredientRepository, PlateIngredientRepository>();
 
 
 

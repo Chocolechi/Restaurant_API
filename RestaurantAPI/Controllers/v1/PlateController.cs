@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAPI.Core.Application.Interfaces.Services;
 using RestaurantAPI.Core.Application.ViewModels.Ingredient;
-using RestaurantAPI.Core.Application.ViewModels.Plate;
+using RestaurantAPI.Core.Application.ViewModels.Plates;
 using System;
 using System.Threading.Tasks;
 
@@ -12,9 +12,11 @@ namespace RestaurantAPI.Controllers.v1
     public class PlateController : BaseApiController
     {
         private readonly IPlateService _plateSvc;
-        public PlateController(IPlateService plateService)
+        private readonly IIngredientService _ingredientSvc;
+        public PlateController(IPlateService plateService, IIngredientService ingredientService)
         {
             _plateSvc = plateService;
+            _ingredientSvc = ingredientService;
         }
 
 
@@ -72,7 +74,27 @@ namespace RestaurantAPI.Controllers.v1
                 {
                     return BadRequest();
                 }
-                await _plateSvc.Add(vm);
+
+                if (vm.Ingredinets.Count == 0)
+                {
+                    return BadRequest();
+                }
+
+                foreach (var id in vm.Ingredinets)
+                {
+                    var ingredinet = await _ingredientSvc.GetbyIdVM(id);
+                    if (ingredinet == null)
+                    {
+                        return BadRequest();
+                    }
+                }
+
+                var plate = await _plateSvc.Add(vm);
+
+                foreach (var id in vm.Ingredinets)
+                {
+                    await _plateSvc.AddIngredients(plate.Id, id );
+                }
 
                 return NoContent();
             }
@@ -94,7 +116,20 @@ namespace RestaurantAPI.Controllers.v1
                 {
                     return BadRequest();
                 }
-                await _plateSvc.Update(vm, id);
+                if (vm.Ingredinets.Count == 0)
+                {
+                    return BadRequest();
+                }
+
+                foreach (var elId in vm.Ingredinets)
+                {
+                    var ingredinet = await _ingredientSvc.GetbyIdVM(elId);
+                    if (ingredinet == null)
+                    {
+                        return BadRequest();
+                    }
+                }
+                await _plateSvc.UpdateAsync(vm, id);
 
                 return Ok(vm);
             }

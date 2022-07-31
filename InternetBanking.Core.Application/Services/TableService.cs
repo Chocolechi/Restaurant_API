@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using RestaurantAPI.Core.Application.Interfaces.Repositories;
 using RestaurantAPI.Core.Application.Interfaces.Services;
-using RestaurantAPI.Core.Application.ViewModels.Plate;
 using RestaurantAPI.Core.Application.ViewModels.Table;
 using RestaurantAPI.Core.Domain.Models;
 

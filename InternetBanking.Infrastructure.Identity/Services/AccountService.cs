@@ -18,17 +18,12 @@ namespace RestaurantAPI.Infrastructure.Identity.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-
-
         public AccountService(UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
-        //Methods
-
-        //Method for login
         public async Task<AuthenticationResponse> AuthenticationAsync(AuthenticationRequest req)
         {
             AuthenticationResponse res = new();

@@ -28,6 +28,8 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
         public DbSet<TableStatus> TableStatus { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
         public DbSet<Order> Order { get; set; }
+        public DbSet<PlateIngredient> PlateIngredient { get; set; }
+
 
 
 
@@ -40,21 +42,21 @@ namespace RestaurantAPI.Infrastructure.Persistence.Context
                 user = _httpContextAccessor.HttpContext.Session.Get<UserViewModel>("user");
             }
 
-            foreach (var entry in ChangeTracker.Entries<AuditableBE>())
-            {
-                switch (entry.State)
-                {
-                    case EntityState.Added:
-                        entry.Entity.Created = DateTime.Now;
-                        entry.Entity.CreatedBy = user.UserName;
+            //foreach (var entry in ChangeTracker.Entries<AuditableBE>())
+            //{
+            //    switch (entry.State)
+            //    {
+            //        //case EntityState.Added:
+            //        //    entry.Entity.Created = DateTime.Now;
+            //        //    entry.Entity.CreatedBy = user.UserName;
 
-                        break;
-                    case EntityState.Modified:
-                        entry.Entity.LastModified = DateTime.Now;
-                        entry.Entity.ModifiedBy = user.UserName;
-                        break;
-                }
-            }
+            //        //    break;
+            //        //case EntityState.Modified:
+            //        //    entry.Entity.LastModified = DateTime.Now;
+            //        //    entry.Entity.ModifiedBy = user.UserName;
+            //        //    break;
+            //    }
+            //}
 
             return base.SaveChangesAsync(ct);
         }

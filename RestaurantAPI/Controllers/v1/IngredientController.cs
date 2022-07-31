@@ -21,7 +21,7 @@ namespace RestaurantAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IngredientViewModel))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> List()
         {
             try
             {
@@ -43,7 +43,7 @@ namespace RestaurantAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IngredientViewModel))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
@@ -107,23 +107,23 @@ namespace RestaurantAPI.Controllers.v1
 
         }
 
-        [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IngredientViewModel))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Delete(int id)
-        {
-            try
-            {
-                await _ingredientSvc.Delete(id);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+        //[HttpDelete("{id}")]
+        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IngredientViewModel))]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    try
+        //    {
+        //        await _ingredientSvc.Delete(id);
+        //        return NoContent();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+        //    }
 
-        }
+        //}
 
     }
 }
